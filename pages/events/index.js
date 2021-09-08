@@ -1,4 +1,5 @@
 import React from "react";
+import Head from "next/head";
 import { useRouter } from "next/router";
 
 import EventsSearch from "../../components/events/events-search";
@@ -16,6 +17,10 @@ const AllEvents = (props) => {
 
 	return (
 		<>
+			<Head>
+				<title>All Events</title>
+				<meta name='description' content='Find and event for you...' />
+			</Head>
 			<EventsSearch onSearch={findEventsHandler} />
 			<EventList items={events} />
 		</>
