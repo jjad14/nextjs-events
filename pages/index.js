@@ -1,8 +1,9 @@
-import React from "react";
-import Head from "next/head";
+import React from 'react';
+import Head from 'next/head';
 
-import { getFeaturedEvents } from "../helpers/api-util";
-import EventList from "../components/events/event-list";
+import { getFeaturedEvents } from '../helpers/api-util';
+import EventList from '../components/events/event-list';
+import NewsletterRegistration from '../components/input/newsletter-registration';
 
 const HomePage = (props) => {
 	return (
@@ -11,6 +12,7 @@ const HomePage = (props) => {
 				<title>NextJS Events</title>
 				<meta name='description' content='Finds and event for you...' />
 			</Head>
+			<NewsletterRegistration />
 			<EventList items={props.events} />
 		</>
 	);

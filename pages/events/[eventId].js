@@ -1,11 +1,12 @@
-import React from "react";
-import Head from "next/head";
+import React from 'react';
+import Head from 'next/head';
 
-import { getEventById, getFeaturedEvents } from "../../helpers/api-util";
-import EventSummary from "../../components/event-detail/event-summary";
-import EventLogistics from "../../components/event-detail/event-logistics";
-import EventContent from "../../components/event-detail/event-content";
-import ErrorAlert from "../../components/ui/error-alert";
+import { getEventById, getFeaturedEvents } from '../../helpers/api-util';
+import EventSummary from '../../components/event-detail/event-summary';
+import EventLogistics from '../../components/event-detail/event-logistics';
+import EventContent from '../../components/event-detail/event-content';
+import ErrorAlert from '../../components/ui/error-alert';
+import Comments from '../../components/input/comments';
 
 const SingleEvent = (props) => {
 	const event = props.selectedEvent;
@@ -34,6 +35,7 @@ const SingleEvent = (props) => {
 			<EventContent>
 				<p>{event.description}</p>
 			</EventContent>
+			<Comments eventId={event.id} />
 		</>
 	);
 };
@@ -58,7 +60,7 @@ export async function getStaticPaths() {
 
 	return {
 		paths: paths,
-		fallback: "blocking"
+		fallback: 'blocking'
 	};
 }
 
